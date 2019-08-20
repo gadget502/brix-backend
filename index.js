@@ -45,4 +45,4 @@ import { router as apiRouter } from "./routes/api";
 //router setting
 app.use("/api", apiRouter);
 
-export { app };
+export { app, moment };

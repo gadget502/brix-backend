@@ -13,6 +13,7 @@ mongoose.Promise = global.Promise;
 
 
 let CommentSchema = mongoose.Schema({
+	cheapterId: {type: String},
   paragraphId: { type: String },
   content: { type: String },
   time: { type: String }, 
@@ -21,9 +22,10 @@ let CommentSchema = mongoose.Schema({
   parentId: { type: Number }
 });
 
+require("./preset")(CommentSchema);
 
 MongooseAutoIncrementID.initialise("no");
-CommentSchema.plugin(MongooseAutoIncrementID.plugin, { modelName: "comments" });
+CommentSchema.plugin(MongooseAutoIncrementID.plugin, { modelName: "comments" })
 
 
 let Comments =  mongoose.model("comments", CommentSchema);
