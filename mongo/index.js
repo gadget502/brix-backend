@@ -11,23 +11,22 @@ mongoose.connect("mongodb://localhost/" + name, {
 
 mongoose.Promise = global.Promise;
 
-
 let CommentSchema = mongoose.Schema({
-	cheapterId: {type: String},
+  chapterId: { type: String },
   paragraphId: { type: String },
+  parentId: { type: Number },
+  title: { type: String },
   content: { type: String },
-  time: { type: String }, 
+  time: { type: String },
   start: { type: String },
-  end: { type: String },
-  parentId: { type: Number }
+  end: { type: String }
 });
 
 require("./preset")(CommentSchema);
 
 MongooseAutoIncrementID.initialise("no");
-CommentSchema.plugin(MongooseAutoIncrementID.plugin, { modelName: "comments" })
+CommentSchema.plugin(MongooseAutoIncrementID.plugin, { modelName: "comments" });
 
-
-let Comments =  mongoose.model("comments", CommentSchema);
+let Comments = mongoose.model("comments", CommentSchema);
 
 export { Comments };
