@@ -37,8 +37,6 @@ app.use(
   })
 );
 app.use(easySession.main(session));
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(cors());
 
 
@@ -47,5 +45,4 @@ import { router as apiRouter } from "./routes/api";
 //router setting
 app.use("/api", apiRouter);
 
-module.exports = app;
-
+export { app };

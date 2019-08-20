@@ -13,7 +13,7 @@ mongoose.Promise = global.Promise;
 
 
 let CommentSchema = mongoose.Schema({
-  paragraphId: { type: String }
+  paragraphId: { type: String },
   content: { type: String },
   time: { type: String }, 
   start: { type: String },
